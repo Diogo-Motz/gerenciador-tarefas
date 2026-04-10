@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciador de Tarefas Avançado</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Gerenciador de Tarefas</h1>
+      <p>Organize suas tarefas de forma prática</p>
+    </header>
+
+    <section class="task-form">
+      <h2>Nova Tarefa</h2>
+      <form id="taskForm">
+        <div class="form-group">
+          <input type="hidden" id="taskId">
+          <input type="text" id="title" placeholder="Título da tarefa" required>
+        </div>
+
+        <div class="form-group">
+          <textarea id="description" placeholder="Descrição da tarefa"></textarea>
+        </div>
+
+        <div class="form-row">
+          <select id="priority" required>
+            <option value="">Selecione a prioridade</option>
+            <option value="Alta">Alta</option>
+            <option value="Média">Média</option>
+            <option value="Baixa">Baixa</option>
+          </select>
+
+          <input type="text" id="category" placeholder="Categoria" required>
+
+          <input type="date" id="dueDate" required>
+        </div>
+
+        <div class="form-buttons">
+          <button type="submit" id="saveBtn">Salvar Tarefa</button>
+          <button type="button" id="cancelEditBtn" class="hidden">Cancelar Edição</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="filters">
+      <h2>Filtros</h2>
+      <div class="filter-row">
+        <input type="text" id="searchInput" placeholder="Buscar por título ou categoria">
+        
+        <select id="statusFilter">
+          <option value="all">Todas</option>
+          <option value="pending">Pendentes</option>
+          <option value="completed">Concluídas</option>
+        </select>
+
+        <select id="priorityFilter">
+          <option value="all">Todas prioridades</option>
+          <option value="Alta">Alta</option>
+          <option value="Média">Média</option>
+          <option value="Baixa">Baixa</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="task-summary">
+      <div class="summary-card">
+        <h3>Total</h3>
+        <span id="totalTasks">0</span>
+      </div>
+      <div class="summary-card">
+        <h3>Pendentes</h3>
+        <span id="pendingTasks">0</span>
+      </div>
+      <div class="summary-card">
+        <h3>Concluídas</h3>
+        <span id="completedTasks">0</span>
+      </div>
+    </section>
+
+    <section class="task-list-section">
+      <h2>Lista de Tarefas</h2>
+      <div id="taskList" class="task-list"></div>
+      <p id="emptyMessage" class="empty-message">Nenhuma tarefa cadastrada.</p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
